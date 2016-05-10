@@ -14,12 +14,12 @@ sass
 **All dev dependencies can be found in package.json.**
 
 ##Setting up for development:
-1. Create github account
-2. Generate ssh key([GitHub_source](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key),[other_source](https://confluence.atlassian.com/bitbucketserver/creating-ssh-keys-776639788.html#CreatingSSHkeys-CreatinganSSHkeyonLinux&MacOSX)), add to ssh-agent ([source](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent)) and Add to GitHub Account ([source](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)).
+###1. Create github account
+###2. Generate ssh key([GitHub_source](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key),[other_source](https://confluence.atlassian.com/bitbucketserver/creating-ssh-keys-776639788.html#CreatingSSHkeys-CreatinganSSHkeyonLinux&MacOSX)), add to ssh-agent ([source](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent)) and Add to GitHub Account ([source](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)).
   * This makes pushing and pulling _alot_ easier as you don't have to enter your username and password each time. It saves valuable time, especially when you're close to a deadline.
-  * You can create an ssh key following these simple steps:
+####  * You can create an ssh key following these simple steps:
     - NOTE: an ssh key is there to interact with services where you are a registered client with a username and password without you having to type in those details from your command line every time.
-    1. If you've never heard of an ssh key and you're working off someone else's computer it's probably best to check if there are any existing ssh keys. If you create a new one for a similar account the existing ssh key might be eliminated unless you make a backup.
+   1. If you've never heard of an ssh key and you're working off someone else's computer it's probably best to check if there are any existing ssh keys. If you create a new one for a similar account the existing ssh key might be eliminated unless you make a backup.
       * ssh keys are usually found in a **hidden** folder called **.ssh** in the **root** directory (i.e. the directory you land up in when you type `$ cd `). Check if this folder exists.
         - `$ cd ~/.ssh`
       * ssh keys start with **id_**. check if any keys exist in the **~/.ssh** directory:
@@ -30,7 +30,7 @@ sass
         $ cp id_rsa* key_backup
 
           ```
-      2. Create a new key (_if there is none that you wish to use_)
+     2. Create a new key (_if there is none that you wish to use_)
         * ```ssh-keygen -t rsa -b 4096 -C "your_email@example.com"```
           - **_Interesting Note:_** The `-t` is to specify the type of algorithm you want to use when creating the key - **rsa** is an acronym of the surnames of the people who invented this specific algorithm - R.L. Rivest, A. Shamir, and L. Adleman ([source](http://people.csail.mit.edu/rivest/Rsapaper.pdf))
              - The `-b` is to specify the length the key must be in bits. GitHub prefers that you use **4096** bits, but if you create your own key, you may choose between a minimum of 768 bits and a maximum of, well, any reasonable magnitude.
@@ -54,7 +54,7 @@ sass
           $ ssh-add ~path/to/.ssh/id_rsa // if you chose a custom folder path.
 
           ```
-      4. Add key to GitHub account:
+     4. Add key to GitHub account:
          * **NOTE** : GitHub offers a rather convoluted way of copying your key to the clipboard, however it is easier than the alternative, which is to open up the file which you can do via `$ nano ~/path/to/.ssh/id_rsa.pub`, and then simply copy the contents using CTRL+SHFT+C (Linux) [CMD+SHFT+C (Mac)],
          **OR** you can copy and paste the following into your command line (just changing the path where relevant):
          ```
@@ -74,14 +74,14 @@ sass
          6. **Click Add SSH key**.
          7. Confirm the action by entering your GitHub password.
 
-- Fork repo and `git clone` (making a duplicate) **under _different_ name** :
+###3. Fork repo and `git clone` (making a duplicate) **under _different_ name** :
   * **NB**  To Fork you simply click on **Fork** in the top right-hand corner under your profile picture.
   * **THEN** make sure you select **SSH URL** in between the **Find file** and **Download ZIP** buttons. Copy _**that**_  URL. (_make sure it starts with_ **git@github.com/<your_username>** _as opposed to_ *http://github.com/<your_username>*)
   * *THEN* in your command line paste : `git clone git@github.com/<your_username>/hbs_build_template.git`
     - Note that when you `git clone <git URL> ` **without specifying a folder name** a new folder with the same name of the repository you just cloned will be created i.e. **hbs_build_template**. If you **want a different folder/repository name** then add ` <new_folder_name>` to the above line, so that it looks like this:
     `git clone git@github.com/<your_username>/hbs_build_template.git <new_folder_name>`
 
-- Initialise git repository **(only if you have downloaded the ZIP file and _NOT_ forked AND cloned the repository.)**
+###4. Initialise git repository **(only if you have downloaded the ZIP file and _NOT_ forked AND cloned the repository.)**
   1. Create a new repository in your GitHub account under a **_different name_** (i.e. "**My_App**")
   2. Create a new local directory that you will link to the remote repository you just created. It doesn't have to be the same name.
   3. Once created get in the folder: `$ cd ~/path/to/new_directory`
