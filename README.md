@@ -107,20 +107,25 @@ sass
 
 ###Benefits of using Sass ([sourced content](http://sass-lang.com/guide))
 
--  less to write
+####Less to write
 
--  PARTIALS - can write partial sass files that are great for modularising your css in development.
+##PARTIALS
+Can write partial sass files that are great for modularising your css in development.
 
--  IMPORT - >> you can import partials into a main.css. For example if you want to have all your fonts in one
+##IMPORT
+you can import partials into a main.css. For example if you want to have all your fonts in one
 sass file but then have sass automatically concatenate it into main.css you can save the file with a
-leading underscore >> \_fonts.sass << then in main.css you can import it using @import fonts.
+leading underscore >> \_fonts.sass << then in main.css you can import it using **\@import** fonts.
 
- -  VARIABLES - you can use variable names, for e.g., repeating colours. Variable names are declared with a $
+ ##VARIABLES
+ you can use variable names, for e.g., repeating colours. Variable names are declared with a $
  sign and subsequently referenced the same way.
 
- -  EXTEND SET OF PROPERTIES - if, e.g., we want .success to have the same properties as .message buttons with some more additions, instead of .message .success, you can write .success @extend .message, and sass will render it .message .success for you. This saves you the trouble of keeping tabs of which classes are dependent on each other or not. Also, if you're looking for the attributes of one class you don't have to go scouring for all it's instances. All it's properties are in one place.
+ ##EXTEND SET OF PROPERTIES
+ if, e.g., we want .success to have the same properties as .message buttons with some more additions, instead of .message .success, you can write .success \@extend .message, and sass will render it .message .success for you. This saves you the trouble of keeping tabs of which classes are dependent on each other or not. Also, if you're looking for the attributes of one class you don't have to go scouring for all it's instances. All it's properties are in one place.
 
--  OPERATORS - allow you to do mathematical operations in css. for, e.g., if you want to create more of a responsive website, then you'd like to use percentages. But it's tedious having to work out the percentages for each height or width of an element. If you are developing a website on a specific size of a screen but you want the same layout for types of screens, then using sass's ability to do mathematical operations you only have to worry about the width and height of your current envirnmont. For example, if you design a nice looking set of buttons next to each other, let's say three, but on a big screen they're larger and on a small screen they're smaller so that they always fit next to each other, then you can simply take their widths in pixels that make them look nice in your environment, divide by the width of your screen in pixels and multiply by 100%! Easy peasy :D
+##OPERATORS
+Allows you to do mathematical operations in css. for, e.g., if you want to create more of a responsive website, then you'd like to use percentages. But it's tedious having to work out the percentages for each height or width of an element. If you are developing a website on a specific size of a screen but you want the same layout for types of screens, then using sass's ability to do mathematical operations you only have to worry about the width and height of your current envirnmont. For example, if you design a nice looking set of buttons next to each other, let's say three, but on a big screen they're larger and on a small screen they're smaller so that they always fit next to each other, then you can simply take their widths in pixels that make them look nice in your environment, divide by the width of your screen in pixels and multiply by 100%! Easy peasy :D
 e.g.
 ```
 /\_buttons.sass
@@ -140,9 +145,10 @@ In a .sass file we can simply write
 ```
 Makes a difference!
 
-- MIXINS - these are very useful if you want have a set of properties that you might have to repeat but some values may be different.
+##MIXINS
+These are very useful if you want have a set of properties that you might have to repeat but some values may be different.
 
-*Example 1*
+**Example 1**
 ```
 =border-radius($radius)
   -webkit-border-radius: $radius
@@ -153,7 +159,7 @@ Makes a difference!
 .box
   +border-radius(10px)
 ```
-*Will render*
+**_Will render_**
 ```
 .box {
   -webkit-border-radius: 10px;
@@ -162,7 +168,7 @@ Makes a difference!
   border-radius: 10px;
 }
 ```
-*Example 2*
+**Example 2**
 ```
 =messageBox($font, $fontSize, $backgrndColour)
   font-family:           $font
@@ -175,7 +181,7 @@ Makes a difference!
 .general-message
   +messageBox(sans-serif, 12px, 'pastel yellow')
 ```
-*Will render*
+**_Will render_**
 ```
 .welcome-message {
   font-family:           abel
