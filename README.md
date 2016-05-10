@@ -107,22 +107,22 @@ sass
 
 ###Benefits of using Sass ([sourced content](http://sass-lang.com/guide))
 
-####Less to write
+- Less to write
 
 ##PARTIALS
 Can write partial sass files that are great for modularising your css in development.
 
 ##IMPORT
-you can import partials into a main.css. For example if you want to have all your fonts in one
+You can import partials into a main.css. For example if you want to have all your fonts in one
 sass file but then have sass automatically concatenate it into main.css you can save the file with a
-leading underscore >> \_fonts.sass << then in main.css you can import it using **\@import** fonts.
+leading underscore >> \_fonts.sass << then in main.css you can import it using **@import** fonts.
 
- ##VARIABLES
- you can use variable names, for e.g., repeating colours. Variable names are declared with a $
+##VARIABLES
+ You can use variable names, for e.g., repeating colours. Variable names are declared with a $
  sign and subsequently referenced the same way.
 
- ##EXTEND SET OF PROPERTIES
- if, e.g., we want .success to have the same properties as .message buttons with some more additions, instead of .message .success, you can write .success \@extend .message, and sass will render it .message .success for you. This saves you the trouble of keeping tabs of which classes are dependent on each other or not. Also, if you're looking for the attributes of one class you don't have to go scouring for all it's instances. All it's properties are in one place.
+##EXTEND SET OF PROPERTIES
+ If, e.g., we want .success to have the same properties as .message buttons with some more additions, instead of .message .success, you can write .success \@extend .message, and sass will render it .message .success for you. This saves you the trouble of keeping tabs of which classes are dependent on each other or not. Also, if you're looking for the attributes of one class you don't have to go scouring for all it's instances. All it's properties are in one place.
 
 ##OPERATORS
 Allows you to do mathematical operations in css. for, e.g., if you want to create more of a responsive website, then you'd like to use percentages. But it's tedious having to work out the percentages for each height or width of an element. If you are developing a website on a specific size of a screen but you want the same layout for types of screens, then using sass's ability to do mathematical operations you only have to worry about the width and height of your current envirnmont. For example, if you design a nice looking set of buttons next to each other, let's say three, but on a big screen they're larger and on a small screen they're smaller so that they always fit next to each other, then you can simply take their widths in pixels that make them look nice in your environment, divide by the width of your screen in pixels and multiply by 100%! Easy peasy :D
@@ -196,7 +196,8 @@ These are very useful if you want have a set of properties that you might have t
 }
 ```
 
--  NESTING - this also makes things easier in development. for example say you have two different tags `h1` and `p` and both belong to `.info` and we also want to add some additional styling to `p`, instead of writing:
+##NESTING
+This also makes things easier in development. for example say you have two different tags `h1` and `p` and both belong to `.info` and we also want to add some additional styling to `p`, instead of writing:
 ```
 .info {
   background-color: 'white grey black';
@@ -223,5 +224,5 @@ Using a .sass extension we can code:
 ```
 And sass will render it to look like the above code we would've written. Neat, right?
 
-*sassMiddleware*
+**sassMiddleware**
 Allows automatic precompilation of your stylesheets when saving while editing in development.
