@@ -59,10 +59,10 @@ sass
          **OR** you can copy and paste the following into your command line (just changing the path where relevant):
          ```
          $ sudo apt-get install xclip
-         # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like          `yum`)
+          Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like          `yum`)
 
          $ xclip -sel clip < ~/.ssh/id_rsa.pub
-         # Copies the contents of the id_rsa.pub file to your clipboard
+          Copies the contents of the id_rsa.pub file to your clipboard
          ```
          * Once the contents of id_rsa.pub (which is your key) has been copied to your clipboard, you can simply follow the rest of [these instructions](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) from **number 2 onwards** for pictures, or if you understand words well:
 
