@@ -1,0 +1,4 @@
+#!/bin/bash
+
+csso my.css --output public/css/main.min.css --map file
+uglifyjs --compress --mangle -- input.js --source-map public/js/maps/main.
