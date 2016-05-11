@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#sudo apt-get install cleancss
+npm install cleancss -g
+sudo npm install gulp -g

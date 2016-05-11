@@ -1,0 +1,10 @@
+#!/bin/bash
+
+gulp bundle-sass
+gulp minify-css
+gulp compress-css
+
+gulp bundle-minify-scripts
+gulp compress-js
+
+#gulp compress-images

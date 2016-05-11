@@ -1,0 +1,20 @@
+button {
+  color: #808080;
+  background-color: #808080;
+}
+
+.nav-bar {
+  color: grey;
+}
+
+.text {
+  color: white;
+  background-color: blue;
+}
+
+@font-face {
+  font-family: 'fontName';
+  src: url("/fonts/...");
+}
+
+/*# sourceMappingURL=main.css.map */

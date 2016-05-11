@@ -113,7 +113,7 @@ sass
 Can write partial sass files that are great for modularising your css in development.
 
 ####IMPORT
-You can import partials into a main.css. For example if you want to have all your fonts in one
+You can import partials into a main.sass. For example if you want to have all your fonts in one
 sass file but then have sass automatically concatenate it into main.css you can save the file with a
 leading underscore >> \_fonts.sass << then in main.css you can import it using **@import** fonts.
 
