@@ -1,3 +1,0 @@
-#!/bin/bash
-mysql --local-infile -u root -1amdan13l < database-setup.sql
-
