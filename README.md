@@ -2,13 +2,19 @@
 
 ###Requirements:
 
-Node.js 4.0+
+- Node.js 4.0+
+```
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+```
 
-~~postgreSQL~~
+- ~~postgreSQL~~
 
-gulp to minify and compress js and css.
-
-sass
+- **Gulp** to bundle, minify, compress, and watch changes in modularised JS files, SASS files (to then automatically compile,rebundle, and compress) as well as images.
+```
+$ npm install gulp -g
+```
 
 
 **All dev dependencies can be found in package.json.**
