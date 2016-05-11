@@ -46,13 +46,12 @@ gulp.task('bundle-sass', function() {
   indentedSyntax: true,
   outputStyle: 'expanded',
   data: 'file'}).on('error', sass.logError))
-  .pipe(sourcemaps.write('.'))
-
-  .pipe(gulp.dest('./dev/css'));
+  .pipe(sourcemaps.write('./maps'))
+  .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('minify-css', function () {
-    gulp.src('./dev/css/main.css')
+    gulp.src('./public/css/main.css')
     .pipe(sourcemaps.init())
     .pipe(autoprefixer({
          browsers: ['last 2 versions'],
@@ -72,11 +71,18 @@ gulp.task('compress-css', function () {
         .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('bundle-minify-scripts', function () {
+gulp.task('bundle-scripts', function () {
     gulp.src('./dev/js/*.js')
         .pipe(sourcemaps.init())
-        .pipe(concat('main.min.js'))
+        .pipe(concat('main.js'))
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./public/js'));
+});
+gulp.task('minify-js', function () {
+    gulp.src('./public/js/main.js')
+        .pipe(sourcemaps.init())
         .pipe(uglify())
+        .pipe(rename('main.min.js'))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./public/js'));
 });
@@ -91,7 +97,7 @@ gulp.task('compress-js', function () {
 
 gulp.task('watch', function() {
     gulp.watch('./dev/sass/*.sass', ['bundle-sass', 'minify-css','compress-css']);
-    gulp.watch('./dev/js/*.js', ['bundle-minify-scripts','compress-js']);
+    gulp.watch('./dev/js/*.js', ['bundle-scripts','minify-js','compress-js']);
     gulp.watch('./public/assets/images/**/*.{gif,jpg,png}', ['compress-images']);
 });
 
