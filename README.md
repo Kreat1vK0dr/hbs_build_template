@@ -17,7 +17,7 @@ $ npm install gulp -g
 ```
 
 
-**All dev dependencies can be found in package.json.**
+**All dev dependencies can be found in [package.json](https://github.com/Kreat1vK0dr/hbs_build_template/blob/master/package.json).**
 
 ##Setting up for development:
 ###1. Create github account
