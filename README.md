@@ -19,6 +19,10 @@ $ npm install gulp -g
 
 **All dev dependencies can be found in** [package.json](https://github.com/Kreat1vK0dr/hbs_build_template/blob/master/package.json).
 
+## Setting up postgreSQL on Ubuntu 14.04
+- [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04)
+
+
 ##Setting up for development:
 ###1. Create github account
 ###2. Generate ssh key([GitHub_source](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key),[other_source](https://confluence.atlassian.com/bitbucketserver/creating-ssh-keys-776639788.html#CreatingSSHkeys-CreatinganSSHkeyonLinux&MacOSX)), add to ssh-agent ([source](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent)) and Add to GitHub Account ([source](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)).
@@ -232,6 +236,3 @@ And sass will render it to look like the above code we would've written. Neat, r
 
 **sassMiddleware**
 Allows automatic precompilation of your stylesheets when saving while editing in development.
-
-# Setting up postgreSQL on Ubuntu 14.04
-- [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04)
