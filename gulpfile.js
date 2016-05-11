@@ -28,36 +28,44 @@ var gulp = require('gulp'),
 // });
 
 // Optimize Images task
-gulp.task('compress-images', function() {
-  return gulp.src('./public/assets/img/**/*.{gif,jpg,png}')
-    .pipe(imagemin({
-        progressive: true,
-        interlaced: true,
-        svgoPlugins: [ {removeViewBox:false}, {removeUselessStrokeAndFill:false} ]
-    }))
-    .pipe(gulp.dest('./public/assets/img'))
+gulp.task('compress-images', function () {
+    return gulp.src('./public/assets/img/**/*.{gif,jpg,png}')
+        .pipe(imagemin({
+            progressive: true,
+            interlaced: true,
+            svgoPlugins: [{
+                removeViewBox: false
+            }, {
+                removeUselessStrokeAndFill: false
+            }]
+        }))
+        .pipe(gulp.dest('./public/assets/img'))
 });
 
 //OR THIS
-gulp.task('bundle-sass', function() {
-  gulp.src('./dev/sass/main.sass')
-  .pipe(sourcemaps.init())
-  .pipe(sass({includePaths: ['./dev/sass'],
-  indentedSyntax: true,
-  outputStyle: 'expanded',
-  data: 'file'}).on('error', sass.logError))
-  .pipe(sourcemaps.write('./maps'))
-  .pipe(gulp.dest('./public/css'));
+gulp.task('bundle-sass', function () {
+    gulp.src('./dev/sass/main.sass')
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            includePaths: ['./dev/sass'],
+            indentedSyntax: true,
+            outputStyle: 'expanded',
+            data: 'file'
+        }).on('error', sass.logError))
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('minify-css', function () {
     gulp.src('./public/css/main.css')
-    .pipe(sourcemaps.init())
-    .pipe(autoprefixer({
-         browsers: ['last 2 versions'],
-         cascade: false
-         }))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(sourcemaps.init())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(cleanCSS({
+            compatibility: 'ie8'
+        }))
         .pipe(rename('main.min.css'))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./public/css'));
@@ -65,7 +73,7 @@ gulp.task('minify-css', function () {
 
 gulp.task('compress-css', function () {
     gulp.src('./public/css/main.min.css')
-    .pipe(sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(gzip())
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./public/css'));
@@ -95,21 +103,23 @@ gulp.task('compress-js', function () {
         .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('watch', function() {
-    gulp.watch('./dev/sass/*.sass', ['bundle-sass', 'minify-css','compress-css']);
-    gulp.watch('./dev/js/*.js', ['bundle-scripts','minify-js','compress-js']);
+gulp.task('watch', function () {
+    gulp.watch('./dev/sass/*.sass', ['bundle-sass', 'minify-css', 'compress-css']);
+    gulp.watch('./dev/js/*.js', ['bundle-scripts', 'minify-js', 'compress-js']);
     gulp.watch('./public/assets/images/**/*.{gif,jpg,png}', ['compress-images']);
 });
 
 gulp.task('nodemon', function () {
-nodemon({ script: 'app.js'})
-    .on('start', ['bundle-sass', 'minify-css','bundle-minify-scripts','compress-css','compress-js','compress-images','watch'], function () {
-        console.log('start!');
-    })
-   .on('change', ['watch'], function () {
-        console.log('changed!');
-    })
-    .on('restart', function () {
-        console.log('restarted!');
-   });
+    nodemon({
+            script: 'app.js'
+        })
+        .on('start', ['bundle-sass', 'minify-css', 'bundle-minify-scripts', 'compress-css', 'compress-js', 'compress-images', 'watch'], function () {
+            console.log('start!');
+        })
+        .on('change', ['watch'], function () {
+            console.log('changed!');
+        })
+        .on('restart', function () {
+            console.log('restarted!');
+        });
 })

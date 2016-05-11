@@ -6,7 +6,7 @@ var express = require('express'),
     mysql = require('mysql'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser');
-    
+
 // Setting up database access options.
 // var dbOptions = {
 //     host: 'localhost',

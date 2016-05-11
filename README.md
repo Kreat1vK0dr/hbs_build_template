@@ -226,3 +226,6 @@ And sass will render it to look like the above code we would've written. Neat, r
 
 **sassMiddleware**
 Allows automatic precompilation of your stylesheets when saving while editing in development.
+
+# Setting up postgreSQL on Ubuntu 14.04
+- [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04)
