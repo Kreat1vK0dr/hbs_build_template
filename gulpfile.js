@@ -1,3 +1,5 @@
+// MUST RUN $ sudo gulp nodemon
+
 var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
@@ -7,7 +9,10 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     gzip = require('gulp-gzip'),
     imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    nodemon = require('gulp-nodemon'),
+    watch = require('gulp-watch');
+
 
 // {outputStyle: 'expanded', includePaths: ['sass']}
 
@@ -32,6 +37,7 @@ gulp.task('compress-images', function() {
     }))
     .pipe(gulp.dest('./public/assets/img'))
 });
+
 //OR THIS
 gulp.task('bundle-sass', function() {
   gulp.src('./dev/sass/main.sass')
@@ -83,6 +89,21 @@ gulp.task('compress-js', function () {
         .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('sass:watch', function () {
-  gulp.watch('./dev/sass/*.sass', ['sass']);
+gulp.task('watch', function() {
+    gulp.watch('./dev/sass/*.sass', ['bundle-sass', 'minify-css','compress-css']);
+    gulp.watch('./dev/js/*.js', ['bundle-minify-scripts','compress-js']);
+    gulp.watch('./public/assets/images/**/*.{gif,jpg,png}', ['compress-images']);
 });
+
+gulp.task('nodemon', function () {
+nodemon({ script: 'app.js'})
+    .on('start', ['bundle-sass', 'minify-css','bundle-minify-scripts','compress-css','compress-js','compress-images','watch'], function () {
+        console.log('start!');
+    })
+   .on('change', ['watch'], function () {
+        console.log('changed!');
+    })
+    .on('restart', function () {
+        console.log('restarted!');
+   });
+})

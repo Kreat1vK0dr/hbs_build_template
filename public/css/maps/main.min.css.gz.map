@@ -1,1 +1,1 @@
-{"version":3,"names":[],"mappings":"","sources":["main.min.css"],"sourcesContent":[".nav-bar,button{color:grey}button{background-color:grey}.text{color:#fff;background-color:#00f}@font-face{font-family:fontName;src:url(/fonts/...)}\n/*# sourceMappingURL=maps/main.min.css.map */\n"],"file":"main.min.css.gz","sourceRoot":"/source/"}
+{"version":3,"names":[],"mappings":"","sources":["main.min.css"],"sourcesContent":["@font-face{font-family:fontName;src:url(/fonts/...)}\n/*# sourceMappingURL=maps/main.min.css.map */\n"],"file":"main.min.css.gz","sourceRoot":"/source/"}
